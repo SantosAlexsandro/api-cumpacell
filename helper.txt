@@ -1,0 +1,49 @@
+Cadastro de produtos
+
+Nome do produto
+Código do produto
+Marca
+Unidade
+Código EAN
+Valor de venda
+Valor de custo
+Peso - em 
+líquido
+Origem do produto
+Tipo de classificação
+Situação
+Tipo de produto
+Fornecedor
+Código de barras interno
+Observações
+Fotos
+Anexos
+
+ 'origin_product', 'classification_type', 'situation', 'type_product', 'vendor', 'observation'
+
+
+
+
+Listagem de Produtos
+Abertura de Caixa
+Operador
+Caixa
+Data Operação
+Valor de Abertura
+Conta
+Valor em Caixa
+Observação
+Confirmação de abertura de caixa
+E-mail + senha
+Abrir (Enter)
+
+O módulo de PDV conta com:
+
+Baixa automática de estoque
+Lançamento em contas a receber
+Compatibilidade com leitores de código de barra
+Parametrização de vendas
+Histórico de vendas
+
+
+
