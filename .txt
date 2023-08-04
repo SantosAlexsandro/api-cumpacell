@@ -1,0 +1,15 @@
+// SEQUELIZE
+
+Primeiro cria a migration, depois o model.
+
+1 passo: npx sequelize migration:create --name=produtos
+
+2 passo: npx sequelize db:migrate
+
+sequelize db:migrate:undo
+
+TODO: Na tabela dos itens, deixar o código do produto como unique.
+
+// Migration > Models > Controller
+
+
