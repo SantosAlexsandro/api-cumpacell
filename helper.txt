@@ -7,7 +7,7 @@ Unidade
 Código EAN
 Valor de venda
 Valor de custo
-Peso - em
+Peso - em 
 líquido
 Origem do produto
 Tipo de classificação
@@ -43,7 +43,7 @@ Baixa automática de estoque
 Lançamento em contas a receber
 Compatibilidade com leitores de código de barra
 Parametrização de vendas
-Histórico de vendas x
+Histórico de vendas
 
 
 
