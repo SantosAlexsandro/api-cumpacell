@@ -11,8 +11,8 @@ export default class Estimate extends Model {
         defaultValue: '',
         validate: {
           len: {
-            args: [10, 35],
-            msg: 'Código do produto só pode ter no máximo 6 números.',
+            args: [3, 6],
+            msg: 'Código do produto preciter ter entre 3 e 6 caracteres.',
           },
         },
       },
@@ -20,7 +20,7 @@ export default class Estimate extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
         unique: {
-          msg: 'Já tem outro cliente com esse número cadastrado.',
+          msg: 'Já tem outro usuário com esse número cadastrado.',
         },
       },
       name_item: {

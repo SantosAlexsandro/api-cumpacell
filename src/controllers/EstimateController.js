@@ -6,10 +6,13 @@ class EstimateController {
     res.status(200).json(estimates);
   }
 
-  async store(req, res) {
-    const estimates = await Estimate.create(req.body);
-    res.status(200).json(estimates);
-  }
+  async store(req, res) {}
+
+  async show(req, res) {}
+
+  async delete(req, res) {}
+
+  async update(req, res) {}
 }
 
 export default new EstimateController();
