@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Estimate extends Model {
+export default class Transaction extends Model {
   static init(sequelize) {
     super.init({
       receiving_date: {
@@ -11,8 +11,8 @@ export default class Estimate extends Model {
         defaultValue: '',
         validate: {
           len: {
-            args: [3, 6],
-            msg: 'Código do produto preciter ter entre 3 e 6 caracteres.',
+            args: [3, 35],
+            msg: 'Código do produto preciter ter entre 3 e 35 caracteres.',
           },
         },
       },

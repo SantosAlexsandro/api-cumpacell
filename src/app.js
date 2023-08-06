@@ -12,7 +12,7 @@ import homeRoutes from './routes/homeRoutes';
 import userRoutes from './routes/userRoutes';
 import tokenRoutes from './routes/tokenRoutes';
 import itemRoutes from './routes/itemRoutes';
-import estimateRoutes from './routes/estimateRoutes';
+import estimateRoutes from './routes/transactionRoutes';
 
 const whiteList = [
   'http://localhost:3000',
@@ -49,7 +49,7 @@ class App {
     this.app.use('/users/', userRoutes);
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/items/', itemRoutes);
-    this.app.use('/estimates/', estimateRoutes);
+    this.app.use('/transactions/', estimateRoutes);
   }
 }
 

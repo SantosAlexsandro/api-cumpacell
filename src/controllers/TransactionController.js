@@ -1,0 +1,91 @@
+import Transaction from '../models/Transaction';
+
+class TransactionController {
+  async index(req, res) {
+    const transactions = await Transaction.findAll();
+    res.status(200).json(transactions);
+  }
+
+  async store(req, res) {
+    try {
+      const transaction = await Transaction.create(req.body);
+      return res.json(transaction);
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
+  }
+
+  async show(req, res) {
+    try {
+      const { id } = req.params;
+      if (!id) {
+        return res.status(400).json({
+          errors: ['Faltando ID'],
+        });
+      }
+      const transaction = await Transaction.findByPk(id);
+      if (!transaction) {
+        return res.status(400).json({
+          errors: ['Aluno não existe.'],
+        });
+      }
+      return res.json(transaction);
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
+  }
+
+  async delete(req, res) {
+    try {
+      const { id } = req.params;
+      if (!id) {
+        return res.status(400).json({
+          errors: ['Faltando ID'],
+        });
+      }
+      const transaction = await Transaction.findByPk(id);
+      if (!transaction) {
+        return res.status(400).json({
+          errors: ['Aluno não existe.'],
+        });
+      }
+      await transaction.destroy();
+      return res.json({
+        deleted: true,
+      });
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
+  }
+
+  async update(req, res) {
+    try {
+      const { id } = req.params;
+      if (!id) {
+        return res.status(400).json({
+          errors: ['Faltando ID'],
+        });
+      }
+      const transaction = await Transaction.findByPk(id);
+      if (!transaction) {
+        return res.status(400).json({
+          errors: ['Transação não existe.'],
+        });
+      }
+      const transactionUpdated = await transaction.update(req.body);
+      return res.json(transactionUpdated);
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
+  }
+}
+
+export default new TransactionController();
