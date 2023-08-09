@@ -6,23 +6,6 @@ export default class Transaction extends Model {
       receiving_date: {
         type: Sequelize.DATE,
       },
-      name_client: {
-        type: Sequelize.STRING,
-        defaultValue: '',
-        validate: {
-          len: {
-            args: [3, 35],
-            msg: 'Código do produto preciter ter entre 3 e 35 caracteres.',
-          },
-        },
-      },
-      phone: {
-        type: Sequelize.STRING,
-        defaultValue: '',
-        unique: {
-          msg: 'Já tem outro usuário com esse número cadastrado.',
-        },
-      },
       name_item: {
         type: Sequelize.STRING,
         defaultValue: '',
@@ -62,9 +45,8 @@ export default class Transaction extends Model {
     return this;
   }
 
-  /*
+  // A transação tem muitos itens
   static associate(models) {
-    this.hasMany(models.Foto, { foreignKey: 'aluno_id' });
+    this.hasMany(models.TransactionItem, {foreignKey: 'transaction_id'})
   }
-  */
 }

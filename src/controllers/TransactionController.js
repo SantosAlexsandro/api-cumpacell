@@ -1,8 +1,16 @@
 import Transaction from '../models/Transaction';
+import TransactionItem from '../models/TransactionItem'
 
 class TransactionController {
   async index(req, res) {
-    const transactions = await Transaction.findAll();
+    const transactions = await Transaction.findAll({
+      attributes: ['id', 'receiving_date', 'defect_description', 'technical_report', 'status_transaction', 'total_service_charge'],
+      order: [['id', 'DESC'], [TransactionItem, 'id', 'DESC']],
+      include: {
+        model: TransactionItem,
+        attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax']
+      }
+    });
     res.status(200).json(transactions);
   }
 
@@ -25,7 +33,14 @@ class TransactionController {
           errors: ['Faltando ID'],
         });
       }
-      const transaction = await Transaction.findByPk(id);
+      const transaction = await Transaction.findByPk(id, {
+        attributes: ['id', 'receiving_date', 'defect_description', 'technical_report', 'status_transaction', 'total_service_charge'],
+        order: [['id', 'DESC'], [TransactionItem, 'id', 'DESC']],
+        include: {
+          model: TransactionItem,
+          attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax']
+        }
+      });
       if (!transaction) {
         return res.status(400).json({
           errors: ['Aluno não existe.'],
