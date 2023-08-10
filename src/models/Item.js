@@ -26,9 +26,6 @@ export default class Item extends Model {
       brand: {
         type: Sequelize.STRING,
         defaultValue: '',
-        unique: {
-          msg: 'E-mail já existe',
-        },
       },
       un: {
         type: Sequelize.STRING,
@@ -36,7 +33,6 @@ export default class Item extends Model {
       },
       cod_ean: {
         type: Sequelize.INTEGER,
-        defaultValue: '',
         validate: {
           len: {
             args: [0, 13],
@@ -55,15 +51,12 @@ export default class Item extends Model {
       },
       cost_product: {
         type: Sequelize.FLOAT,
-        defaultValue: '',
       },
       gross_weight: {
         type: Sequelize.FLOAT,
-        defaultValue: '',
       },
       light_weight: { // Corrigir depois para net weight
         type: Sequelize.FLOAT,
-        defaultValue: '',
       },
       origin_product: {
         type: Sequelize.STRING,
@@ -94,10 +87,4 @@ export default class Item extends Model {
     });
     return this;
   }
-
-  /*
-  static associate(models) {
-    this.hasMany(models.Foto, { foreignKey: 'aluno_id' });
-  }
-  */
 }

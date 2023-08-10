@@ -30,6 +30,6 @@ export default class TransactionItem extends Model {
     this.belongsTo(models.Item, { foreignKey: 'item_id' });
 
     // Associação com Transaction
-    // this.belongsTo(models.Transactions, { foreignKey: 'transaction_id', as: 'transaction' });
+    // this.belongsTo(models.Transaction, { foreignKey: 'transaction_id', as: 'transaction' });
   }
 }

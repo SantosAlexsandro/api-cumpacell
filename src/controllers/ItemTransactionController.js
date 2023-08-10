@@ -1,8 +1,15 @@
 import TransactionItem from '../models/TransactionItem';
+import Item from '../models/Item'
 
 class ItemTransactionController {
   async index(req, res) {
-    res.status(200).json('index');
+    const transactionItems = await TransactionItem.findAll({
+      include: {
+        model: Item,
+        attributes: ['name_item', 'brand', 'price_product']
+      }
+    });
+    res.status(200).json(transactionItems);
   }
 
   async store(req, res) {
