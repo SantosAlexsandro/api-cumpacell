@@ -2,8 +2,10 @@
 var _database = require('../config/database'); var _database2 = _interopRequireDefault(_database);
 var _Item = require('../models/Item'); var _Item2 = _interopRequireDefault(_Item);
 var _User = require('../models/User'); var _User2 = _interopRequireDefault(_User);
+var _Transaction = require('../models/Transaction'); var _Transaction2 = _interopRequireDefault(_Transaction);
+var _TransactionItem = require('../models/TransactionItem'); var _TransactionItem2 = _interopRequireDefault(_TransactionItem);
 
-const models = [_Item2.default, _User2.default];
+const models = [_Item2.default, _User2.default, _Transaction2.default, _TransactionItem2.default];
 
 const connection = new (0, _sequelize2.default)(_database2.default);
 

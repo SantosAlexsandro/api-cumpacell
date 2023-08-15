@@ -26,9 +26,6 @@
       brand: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
-        unique: {
-          msg: 'E-mail já existe',
-        },
       },
       un: {
         type: _sequelize2.default.STRING,
@@ -36,7 +33,6 @@
       },
       cod_ean: {
         type: _sequelize2.default.INTEGER,
-        defaultValue: '',
         validate: {
           len: {
             args: [0, 13],
@@ -55,15 +51,12 @@
       },
       cost_product: {
         type: _sequelize2.default.FLOAT,
-        defaultValue: '',
       },
       gross_weight: {
         type: _sequelize2.default.FLOAT,
-        defaultValue: '',
       },
       light_weight: { // Corrigir depois para net weight
         type: _sequelize2.default.FLOAT,
-        defaultValue: '',
       },
       origin_product: {
         type: _sequelize2.default.STRING,
@@ -94,10 +87,4 @@
     });
     return this;
   }
-
-  /*
-  static associate(models) {
-    this.hasMany(models.Foto, { foreignKey: 'aluno_id' });
-  }
-  */
 } exports.default = Item;
