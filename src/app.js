@@ -19,6 +19,7 @@ const whiteList = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://technical-assistance.santosalexsandro.dev',
+  'https://tassist.santosalexsandro.dev',
 ];
 
 const corsOptions = {

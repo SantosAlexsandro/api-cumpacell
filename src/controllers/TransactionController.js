@@ -1,6 +1,6 @@
 import Transaction from '../models/Transaction';
-import TransactionItem from '../models/TransactionItem'
-import Item from '../models/Item'
+import TransactionItem from '../models/TransactionItem';
+import Item from '../models/Item';
 
 class TransactionController {
   async index(req, res) {
@@ -8,13 +8,13 @@ class TransactionController {
       attributes: ['id', 'receiving_date', 'defect_description', 'technical_report', 'status_transaction', 'total_service_charge'],
       order: [['id', 'DESC'], [TransactionItem, 'id', 'DESC']],
       include: {
-        include: 
+        include:
           {
             model: Item,
           },
         model: TransactionItem,
         attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax'],
-      }
+      },
     });
     res.status(200).json(transactions);
   }
@@ -43,8 +43,8 @@ class TransactionController {
         order: [['id', 'DESC'], [TransactionItem, 'id', 'DESC']],
         include: {
           model: TransactionItem,
-          attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax']
-        }
+          attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax'],
+        },
       });
       if (!transaction) {
         return res.status(400).json({

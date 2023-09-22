@@ -8,13 +8,13 @@ class TransactionController {
       attributes: ['id', 'receiving_date', 'defect_description', 'technical_report', 'status_transaction', 'total_service_charge'],
       order: [['id', 'DESC'], [_TransactionItem2.default, 'id', 'DESC']],
       include: {
-        include: 
+        include:
           {
             model: _Item2.default,
           },
         model: _TransactionItem2.default,
         attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax'],
-      }
+      },
     });
     res.status(200).json(transactions);
   }
@@ -43,8 +43,8 @@ class TransactionController {
         order: [['id', 'DESC'], [_TransactionItem2.default, 'id', 'DESC']],
         include: {
           model: _TransactionItem2.default,
-          attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax']
-        }
+          attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax'],
+        },
       });
       if (!transaction) {
         return res.status(400).json({
