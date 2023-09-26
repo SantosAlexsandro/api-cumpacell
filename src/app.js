@@ -52,8 +52,8 @@ class App {
     this.app.use('/users/', userRoutes);
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/items/', itemRoutes);
+    this.app.use('/transactions/items/', transactionItemRoutes);
     this.app.use('/transactions/', transactionRoutes);
-    this.app.use('/transactionsitems/', transactionItemRoutes);
   }
 }
 

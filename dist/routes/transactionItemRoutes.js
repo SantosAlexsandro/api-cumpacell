@@ -3,8 +3,7 @@ var _ItemTransactionController = require('../controllers/ItemTransactionControll
 
 const router = new (0, _express.Router)();
 
-router.post('/', _ItemTransactionController2.default.store);
 router.get('/', _ItemTransactionController2.default.index);
-
+router.post('/:id', _ItemTransactionController2.default.store);
 
 exports. default = router;

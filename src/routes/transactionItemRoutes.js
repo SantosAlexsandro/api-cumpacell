@@ -3,8 +3,7 @@ import itemTransactionController from '../controllers/ItemTransactionController'
 
 const router = new Router();
 
-router.post('/', itemTransactionController.store);
 router.get('/', itemTransactionController.index);
-
+router.post('/:id', itemTransactionController.store);
 
 export default router;

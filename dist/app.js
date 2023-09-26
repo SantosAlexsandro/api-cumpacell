@@ -52,8 +52,8 @@ class App {
     this.app.use('/users/', _userRoutes2.default);
     this.app.use('/tokens/', _tokenRoutes2.default);
     this.app.use('/items/', _itemRoutes2.default);
+    this.app.use('/transactions/items/', _transactionItemRoutes2.default);
     this.app.use('/transactions/', _transactionRoutes2.default);
-    this.app.use('/transactionsitems/', _transactionItemRoutes2.default);
   }
 }
 

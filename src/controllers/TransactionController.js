@@ -48,7 +48,7 @@ class TransactionController {
       });
       if (!transaction) {
         return res.status(400).json({
-          errors: ['Aluno não existe.'],
+          errors: ['Transação não existe.'],
         });
       }
       return res.json(transaction);
@@ -70,7 +70,7 @@ class TransactionController {
       const transaction = await Transaction.findByPk(id);
       if (!transaction) {
         return res.status(400).json({
-          errors: ['Aluno não existe.'],
+          errors: ['Transação não existe.'],
         });
       }
       await transaction.destroy();

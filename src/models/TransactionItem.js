@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import Sequelize, { Model } from 'sequelize';
 
 export default class TransactionItem extends Model {
@@ -6,7 +7,7 @@ export default class TransactionItem extends Model {
       quantity: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
-        },
+      },
       unit_price_at_transaction: {
         type: Sequelize.FLOAT,
       },
