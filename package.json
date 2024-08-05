@@ -13,9 +13,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.28.0",
+    "@eslint/js": "^9.8.0",
+    "eslint": "^9.8.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "globals": "^15.8.0",
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2",
     "sucrase": "^3.29.0"
