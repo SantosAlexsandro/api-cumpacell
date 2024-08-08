@@ -1,4 +1,4 @@
-/* eslint-disable linebreak-style */
+
 import Sequelize, { Model } from 'sequelize';
 
 export default class TransactionItem extends Model {
@@ -32,5 +32,6 @@ export default class TransactionItem extends Model {
 
     // Associação com Transaction
     // this.belongsTo(models.Transaction, { foreignKey: 'transaction_id', as: 'transaction' });
+    this.belongsTo(models.Transaction, { foreignKey: 'transaction_id'});
   }
 }

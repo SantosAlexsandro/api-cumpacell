@@ -45,8 +45,8 @@ export default class Transaction extends Model {
     return this;
   }
 
-  // A transação tem muitos itens
   static associate(models) {
     this.hasMany(models.TransactionItem, { foreignKey: 'transaction_id' });
+    this.belongsTo(models.User, { foreignKey: 'user_id' });
   }
 }
