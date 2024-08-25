@@ -3,40 +3,22 @@ import Sequelize, { Model } from 'sequelize';
 export default class Transaction extends Model {
   static init(sequelize) {
     super.init({
-      receiving_date: {
+      defected_items_arrival_date: {
         type: Sequelize.DATE,
       },
-      name_item: {
+      transaction_defect_description: {
         type: Sequelize.STRING,
         defaultValue: '',
       },
-      brand_item: {
-        type: Sequelize.STRING,
-        defaultValue: '',
-        validate: {
-          len: {
-            args: [0, 13],
-            msg: 'Marca só pode ter no máximo 13 dígitos.',
-          },
-        },
-      },
-      model_item: {
-        type: Sequelize.STRING,
-      },
-
-      defect_description: {
+      transaction_technical_report: {
         type: Sequelize.STRING,
         defaultValue: '',
       },
-      technical_report: {
+      transaction_status: {
         type: Sequelize.STRING,
         defaultValue: '',
       },
-      status_transaction: {
-        type: Sequelize.STRING,
-        defaultValue: '',
-      },
-      total_service_charge: {
+      transaction_total_amount: {
         type: Sequelize.FLOAT,
       },
     }, {

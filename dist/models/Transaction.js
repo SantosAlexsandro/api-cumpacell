@@ -3,40 +3,22 @@
  class Transaction extends _sequelize.Model {
   static init(sequelize) {
     super.init({
-      receiving_date: {
+      defected_items_arrival_date: {
         type: _sequelize2.default.DATE,
       },
-      name_item: {
+      transaction_defect_description: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
       },
-      brand_item: {
-        type: _sequelize2.default.STRING,
-        defaultValue: '',
-        validate: {
-          len: {
-            args: [0, 13],
-            msg: 'Marca só pode ter no máximo 13 dígitos.',
-          },
-        },
-      },
-      model_item: {
-        type: _sequelize2.default.STRING,
-      },
-
-      defect_description: {
+      transaction_technical_report: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
       },
-      technical_report: {
+      transaction_status: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
       },
-      status_transaction: {
-        type: _sequelize2.default.STRING,
-        defaultValue: '',
-      },
-      total_service_charge: {
+      transaction_total_amount: {
         type: _sequelize2.default.FLOAT,
       },
     }, {
@@ -45,8 +27,8 @@
     return this;
   }
 
-  // A transação tem muitos itens
   static associate(models) {
     this.hasMany(models.TransactionItem, { foreignKey: 'transaction_id' });
+    this.belongsTo(models.User, { foreignKey: 'user_id' });
   }
 } exports.default = Transaction;

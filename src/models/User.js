@@ -4,7 +4,7 @@ import bcryptjs from 'bcryptjs';
 export default class User extends Model {
   static init(sequelize) {
     super.init({
-      nome: {
+      entity_first_name: {
         type: Sequelize.STRING,
         defaultValue: '',
         validate: {
@@ -14,7 +14,7 @@ export default class User extends Model {
           },
         },
       },
-      email: {
+      entity_email: {
         type: Sequelize.STRING,
         defaultValue: '',
         unique: {
@@ -26,7 +26,11 @@ export default class User extends Model {
           },
         },
       },
-      password_hash: {
+      entity_phone: {
+        type: Sequelize.STRING,
+        defaultValue: '',
+      },
+      entity_password_hash: {
         type: Sequelize.STRING,
         defaultValue: '',
       },

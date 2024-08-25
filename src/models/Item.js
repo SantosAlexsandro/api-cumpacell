@@ -3,7 +3,7 @@ import Sequelize, { Model } from 'sequelize';
 export default class Item extends Model {
   static init(sequelize) {
     super.init({
-      name_item: {
+      item_name: {
         type: Sequelize.STRING,
         defaultValue: '',
         validate: {
@@ -23,7 +23,7 @@ export default class Item extends Model {
           },
         },
       },
-      brand: {
+      item_brand: {
         type: Sequelize.STRING,
         defaultValue: '',
       },

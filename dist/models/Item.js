@@ -3,7 +3,7 @@
  class Item extends _sequelize.Model {
   static init(sequelize) {
     super.init({
-      name_item: {
+      item_name: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
         validate: {
@@ -23,7 +23,7 @@
           },
         },
       },
-      brand: {
+      item_brand: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
       },

@@ -1,24 +1,17 @@
 import Transaction from '../models/Transaction';
 import TransactionItem from '../models/TransactionItem';
-import Item from '../models/Item';
+// import Item from '../models/Item';
 import User from '../models/User';
 
 class TransactionController {
   async index(req, res) {
     const transactions = await Transaction.findAll({
-      attributes: ['id', 'receiving_date', 'defect_description', 'technical_report', 'status_transaction', 'total_service_charge', 'created_at'],
-      order: [['id', 'DESC'], [TransactionItem, 'id', 'DESC']],
+      attributes: ['id',  ['created_at', 'transaction_date'], 'defected_items_arrival_date', 'transaction_status', 'transaction_total_amount' ],
+      order: [['id', 'DESC']],
       include: [
         {
-          model: TransactionItem,
-          attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax'],
-          include:
-          {
-            model: Item,
-          },
-        },
-        {
-          model: User
+          model: User,
+          attributes: ['entity_first_name'],
         }
       ],
 

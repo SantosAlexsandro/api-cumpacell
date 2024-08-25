@@ -17,8 +17,7 @@ var _transactionItemRoutes = require('./routes/transactionItemRoutes'); var _tra
 
 const whiteList = [
   'http://localhost:3000',
-  'https://technical-assistance.santosalexsandro.dev',
-  'https://tassist.santosalexsandro.dev',
+  'https://dash.cumpacell.com'
 ];
 
 const corsOptions = {
@@ -50,9 +49,9 @@ class App {
     this.app.use('/', _homeRoutes2.default);
     this.app.use('/users/', _userRoutes2.default);
     this.app.use('/tokens/', _tokenRoutes2.default);
+    this.app.use('/transactions/', _transactionRoutes2.default);
     this.app.use('/items/', _itemRoutes2.default);
     this.app.use('/transactions/items/', _transactionItemRoutes2.default);
-    this.app.use('/transactions/', _transactionRoutes2.default);
   }
 }
 

@@ -1,20 +1,21 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Transaction = require('../models/Transaction'); var _Transaction2 = _interopRequireDefault(_Transaction);
 var _TransactionItem = require('../models/TransactionItem'); var _TransactionItem2 = _interopRequireDefault(_TransactionItem);
-var _Item = require('../models/Item'); var _Item2 = _interopRequireDefault(_Item);
+// import Item from '../models/Item';
+var _User = require('../models/User'); var _User2 = _interopRequireDefault(_User);
 
 class TransactionController {
   async index(req, res) {
     const transactions = await _Transaction2.default.findAll({
-      attributes: ['id', 'receiving_date', 'defect_description', 'technical_report', 'status_transaction', 'total_service_charge'],
-      order: [['id', 'DESC'], [_TransactionItem2.default, 'id', 'DESC']],
-      include: {
-        include:
-          {
-            model: _Item2.default,
-          },
-        model: _TransactionItem2.default,
-        attributes: ['quantity', 'unit_price_at_transaction', 'total_price', 'discount', 'tax'],
-      },
+      attributes: ['id',  ['created_at', 'transaction_date'], 'defected_items_arrival_date', 'transaction_status', 'transaction_total_amount' ],
+      order: [['id', 'DESC']],
+      include: [
+        {
+          model: _User2.default,
+          attributes: ['entity_first_name'],
+        }
+      ],
+
+
     });
     res.status(200).json(transactions);
   }

@@ -1,4 +1,4 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }/* eslint-disable linebreak-style */
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(_sequelize);
 
  class TransactionItem extends _sequelize.Model {
@@ -32,5 +32,6 @@ var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(
 
     // Associação com Transaction
     // this.belongsTo(models.Transaction, { foreignKey: 'transaction_id', as: 'transaction' });
+    this.belongsTo(models.Transaction, { foreignKey: 'transaction_id'});
   }
 } exports.default = TransactionItem;

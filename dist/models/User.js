@@ -4,7 +4,7 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
  class User extends _sequelize.Model {
   static init(sequelize) {
     super.init({
-      nome: {
+      entity_first_name: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
         validate: {
@@ -14,7 +14,7 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
           },
         },
       },
-      email: {
+      entity_email: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
         unique: {
@@ -26,7 +26,11 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
           },
         },
       },
-      password_hash: {
+      entity_phone: {
+        type: _sequelize2.default.STRING,
+        defaultValue: '',
+      },
+      entity_password_hash: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
       },
@@ -52,6 +56,11 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
 
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.Transaction, { foreignKey: 'user_id' });
+  }
+
 
   passwordIsValid(password) {
     return _bcryptjs2.default.compare(password, this.password_hash);
