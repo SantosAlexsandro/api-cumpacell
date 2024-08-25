@@ -1,11 +1,11 @@
 import Sequelize from 'sequelize';
 import databaseConfig from '../config/database';
 import Item from '../models/Item';
-import User from '../models/User';
+import Entity from '../models/Entity';
 import Transaction from '../models/Transaction';
 import TransactionItem from '../models/TransactionItem';
 
-const models = [Item, User, Transaction, TransactionItem];
+const models = [Item, Entity, Transaction, TransactionItem];
 
 const connection = new Sequelize(databaseConfig);
 

@@ -29,6 +29,6 @@ export default class Transaction extends Model {
 
   static associate(models) {
     this.hasMany(models.TransactionItem, { foreignKey: 'transaction_id' });
-    this.belongsTo(models.User, { foreignKey: 'user_id' });
+    this.belongsTo(models.Entity, { foreignKey: 'user_id' });
   }
 }

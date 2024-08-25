@@ -9,7 +9,7 @@ import './database';
 
 import express from 'express';
 import homeRoutes from './routes/homeRoutes';
-import userRoutes from './routes/userRoutes';
+import entityRoutes from './routes/entityRoutes';
 import tokenRoutes from './routes/tokenRoutes';
 import itemRoutes from './routes/itemRoutes';
 import transactionRoutes from './routes/transactionRoutes';
@@ -47,7 +47,7 @@ class App {
 
   routes() {
     this.app.use('/', homeRoutes);
-    this.app.use('/users/', userRoutes);
+    this.app.use('/entidades/', entityRoutes);
     this.app.use('/tokens/', tokenRoutes);
     this.app.use('/transactions/', transactionRoutes);
     this.app.use('/items/', itemRoutes);

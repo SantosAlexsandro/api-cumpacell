@@ -1,7 +1,7 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Transaction = require('../models/Transaction'); var _Transaction2 = _interopRequireDefault(_Transaction);
 var _TransactionItem = require('../models/TransactionItem'); var _TransactionItem2 = _interopRequireDefault(_TransactionItem);
 // import Item from '../models/Item';
-var _User = require('../models/User'); var _User2 = _interopRequireDefault(_User);
+var _Entity = require('../models/Entity'); var _Entity2 = _interopRequireDefault(_Entity);
 
 class TransactionController {
   async index(req, res) {
@@ -10,7 +10,7 @@ class TransactionController {
       order: [['id', 'DESC']],
       include: [
         {
-          model: _User2.default,
+          model: _Entity2.default,
           attributes: ['entity_first_name'],
         }
       ],

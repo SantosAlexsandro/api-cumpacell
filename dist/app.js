@@ -9,7 +9,7 @@ require('./database');
 
 var _express = require('express'); var _express2 = _interopRequireDefault(_express);
 var _homeRoutes = require('./routes/homeRoutes'); var _homeRoutes2 = _interopRequireDefault(_homeRoutes);
-var _userRoutes = require('./routes/userRoutes'); var _userRoutes2 = _interopRequireDefault(_userRoutes);
+var _entityRoutes = require('./routes/entityRoutes'); var _entityRoutes2 = _interopRequireDefault(_entityRoutes);
 var _tokenRoutes = require('./routes/tokenRoutes'); var _tokenRoutes2 = _interopRequireDefault(_tokenRoutes);
 var _itemRoutes = require('./routes/itemRoutes'); var _itemRoutes2 = _interopRequireDefault(_itemRoutes);
 var _transactionRoutes = require('./routes/transactionRoutes'); var _transactionRoutes2 = _interopRequireDefault(_transactionRoutes);
@@ -47,7 +47,7 @@ class App {
 
   routes() {
     this.app.use('/', _homeRoutes2.default);
-    this.app.use('/users/', _userRoutes2.default);
+    this.app.use('/entidades/', _entityRoutes2.default);
     this.app.use('/tokens/', _tokenRoutes2.default);
     this.app.use('/transactions/', _transactionRoutes2.default);
     this.app.use('/items/', _itemRoutes2.default);

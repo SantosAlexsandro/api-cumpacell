@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
+import Entity from '../models/Entity';
 
 class TokenController {
   async store(req, res) {
@@ -11,7 +11,7 @@ class TokenController {
       });
     }
 
-    const user = await User.findOne({ where: { email } });
+    const user = await Entity.findOne({ where: { email } });
 
     if (!user) {
       return res.status(401).json({

@@ -1,7 +1,7 @@
 import Transaction from '../models/Transaction';
 import TransactionItem from '../models/TransactionItem';
 // import Item from '../models/Item';
-import User from '../models/User';
+import Entity from '../models/Entity';
 
 class TransactionController {
   async index(req, res) {
@@ -10,7 +10,7 @@ class TransactionController {
       order: [['id', 'DESC']],
       include: [
         {
-          model: User,
+          model: Entity,
           attributes: ['entity_first_name'],
         }
       ],
