@@ -11,7 +11,8 @@ class TokenController {
       });
     }
 
-    const user = await Entity.findOne({ where: { email } });
+    const user = await Entity.findOne({ where: { entity_email: email } });
+    //console.log('log', user)
 
     if (!user) {
       return res.status(401).json({
@@ -25,11 +26,11 @@ class TokenController {
     }
 
     const { id } = user;
-    const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
+    const token = jwt.sign({ id, entity_email: email }, process.env.TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRATION,
     });
 
-    return res.status(200).json({ token, user: { nome: user.nome, id, email } });
+    return res.status(200).json({ token, user: { nome: user.entity_first_name, id, entity_email: email } });
   }
 }
 

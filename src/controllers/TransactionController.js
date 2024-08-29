@@ -14,8 +14,6 @@ class TransactionController {
           attributes: ['entity_first_name'],
         }
       ],
-
-
     });
     res.status(200).json(transactions);
   }

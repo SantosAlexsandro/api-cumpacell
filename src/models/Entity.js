@@ -50,7 +50,7 @@ export default class Entity extends Model {
 
     this.addHook('beforeSave', async (user) => {
       if (user.password) {
-        user.password_hash = await bcryptjs.hash(user.password, 8);
+        user.entity_password_hash = await bcryptjs.hash(user.password, 8);
       }
     });
 
@@ -63,6 +63,6 @@ export default class Entity extends Model {
 
 
   passwordIsValid(password) {
-    return bcryptjs.compare(password, this.password_hash);
+    return bcryptjs.compare(password, this.entity_password_hash);
   }
 }
